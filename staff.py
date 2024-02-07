@@ -1,5 +1,4 @@
-from tkinter import *
-import os 
+from tkinter import * 
 from tkinter import messagebox,Toplevel
 from PIL import Image,ImageTk
 class dashboard_app():
