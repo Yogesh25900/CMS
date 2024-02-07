@@ -106,3 +106,5 @@ def open_main():
     master.mainloop()
 if __name__ == "__main__":
     open_main()
+
+#edit1
