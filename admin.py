@@ -22,7 +22,7 @@ class dashboard_app():
 
        
         #Customer button
-        self.btn_menu = Button(self.l_f_frame,text="Customer")
+        self.btn_menu = Button(self.l_f_frame,text="Customer",command=self.open_customer)
         self.btn_menu.place(x=60,y=80)
 
         menu_img_path = "customer.jpg"
@@ -34,7 +34,7 @@ class dashboard_app():
         self.label_ico_menu.place(x=10,y=80)
 
         #Staff button
-        self.btn_Customer = Button(self.l_f_frame,text="Staff")
+        self.btn_Customer = Button(self.l_f_frame,text="Staff",command=self.open_staff)
         self.btn_Customer.place(x=60,y=130)
 
         customer_img_path = "staf.jpg"
@@ -59,10 +59,6 @@ class dashboard_app():
         self.label_ico_canteen.place(x=10,y=180)
 
 
-        #Log out button
-        self.btn_Staff = Button(self.l_f_frame,text="Log out")
-        self.btn_Staff.place(x=60,y=230)
-
         staff_img_path = "lgout.jpg"
         org_img= Image.open(staff_img_path)
         res_img = org_img.copy()
@@ -82,7 +78,15 @@ class dashboard_app():
         label_img = Label(rem_frame,image=self.bg_image)
         label_img.pack()
 
-  
+    def open_customer(self):
+        from adminCustomer import customerDatabase
+        customer_window=Tk()
+        win_instance=customerDatabase(customer_window)  
+    def open_staff(self):
+        from adminStaff import staffDatabase
+        staff_window=Tk()
+        staff_instance=staffDatabase(staff_window)
+
 def open_main():
     master = Tk()
     object_name = dashboard_app(master)
