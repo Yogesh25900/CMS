@@ -1,58 +1,81 @@
 from tkinter import *
-import os 
-from tkinter import messagebox,Toplevel
+from tkinter import ttk
 from PIL import Image,ImageTk
-class dahsboard_chef():
-    def __init__(self,master):
+import mysql.connector
+
+class ChefOrder:
+    def __init__(self, master):
         self.master = master
-        self.master.geometry('1300x700+0+2')
-        self.master.title('chef Dashboard')
-        
-        #Upper frame where title is going to be displayed
-        self.upper_frame = Frame(self.master,bd= 10,bg='white')
-        self.upper_frame.pack(side=TOP,fill=X)
-        self.upper_label = Label(self.upper_frame,text="This is the upper frame")
-        self.upper_label.pack()
-        #lower left frame where menus are going to be displayed
-        self.l_f_frame = Frame(self.master,bg= '#c0dcc0',width=130,height=500)
-        self.l_f_frame.pack(side=LEFT,fill=Y)
-        self.label = Label(self.l_f_frame,text="This is the lower left frame")
-        self.label.pack()
+        self.master.title('Chef Order')
+        self.master.geometry('920x550+0+2')
 
-        # creating buttons for the dashboard
-
-        #me.place(x=60,y=32)
-
-        menu_img_path = "menu.jpg"
-        org_img= Image.open(menu_img_path)
-        res_img = org_img.copy()
-        res_img.thumbnail((30,30))
-        self.HomeIcon= ImageTk.PhotoImage(res_img)
-        self.label_ico_menu = Label(self.l_f_frame,image=self.HomeIcon)
-        self.label_ico_menu.place(x=10,y=30)
-
+        # Create a frame to hold the order display
        
-
-       
-     
-
-      
-
-        
-
-
-        #remaining frame where the background image as well as dashbaord contents is displayed
-        rem_frame = Frame(self.master,bg='green')
-        rem_frame.pack()
-        self.bg_image=ImageTk.PhotoImage(Image.open("HC_hero16x9.jpg"))
+        rem_frame = Frame(self.master,bg='white',bd=2,relief=GROOVE)
+        rem_frame.pack(side=LEFT)
+        image = Image.open("chefbg.jpg")
+        res_img = image.resize((425,550))
+        self.bg_image=ImageTk.PhotoImage(res_img)
 
         label_img = Label(rem_frame,image=self.bg_image)
         label_img.pack()
 
 
-def open_main():
-    master = Tk()
-    object_name = dahsboard_chef(master)
-    master.mainloop()
+        #lower left frame where menus are going to be displayed
+        self.order_frame = Frame(self.master,bg= 'light grey',relief=GROOVE,bd=2)
+        self.order_frame.pack()
+       
+
+        # Display headings
+
+        # Fetch orders with NULL or 'Not Delivered' order status from tborder
+        self.connection = mysql.connector.connect(
+            host='localhost',
+            user='root',
+            password='',
+            database='canteen_database1'
+        )
+        self.cursor = self.connection.cursor()
+
+        self.fetch_orders()  # Initial fetch and display orders
+
+        # Refresh button
+        refresh_button = Button(self.master, text='Refresh', command=self.fetch_orders)
+        refresh_button.pack(pady=10)
+
+    def fetch_orders(self):
+        # Clear previous orders
+        for widget in self.order_frame.winfo_children():
+            widget.destroy()
+
+        # Display headings again
+        headings = ['Order ID', 'Food Names']
+        for i, heading in enumerate(headings):
+            label = Label(self.order_frame, text=heading,bg='light grey', font=('helvetica', 20, 'bold'))
+            label.grid(row=0, column=i, padx=50, pady=20)
+
+        # Fetch orders with NULL or 'Not Delivered' order status from tborder
+        query = "SELECT orderid, GROUP_CONCAT(itemid) FROM tborder WHERE orderstatus IS NULL OR orderstatus = 'Undelivered' GROUP BY orderid"
+        self.cursor.execute(query)
+        orders = self.cursor.fetchall()
+
+        # Display order details
+        for i, order in enumerate(orders):
+            order_id, food_names = order
+            row_number = i + 1
+
+            Label(self.order_frame,bg= 'light grey',font=('helvetica') ,text=order_id).grid(row=row_number, column=0, padx=10, pady=5)
+            Label(self.order_frame,bg= 'light grey' ,font=('helvetica'),text=food_names).grid(row=row_number, column=1, padx=10, pady=5)
+def open_cheforder_window(self):
+    order_window= Tk()
+    win_instance= ChefOrder(order_window)
+    order_window.mainloop()
+
+
+def main():
+    root = Tk()
+    app = ChefOrder(root)
+    root.mainloop()
+
 if __name__ == "__main__":
-    open_main()
+    main()
