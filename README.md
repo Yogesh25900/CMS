@@ -2,7 +2,7 @@
 <br/>
 <p align="center">
   <a href="https://github.com/Boombam258/CMS/>
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="![logo](https://github.com/Boombam258/CMS/assets/151710577/567cdbe3-c374-4558-a177-d7306b9cf29e)" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Canteen Management System</h3>
@@ -16,13 +16,13 @@
     <br/>
     <a href="https://github.com/ShaanCoding/ReadME-Generator">View Demo</a>
     .
-    <a href="https://github.com/ShaanCoding/ReadME-Generator/issues">Report Bug</a>
+    <a href="https://github.com/Boombam258/CMS/issues">Report Bug</a>
     .
-    <a href="https://github.com/ShaanCoding/ReadME-Generator/issues">Request Feature</a>
+    <a href="https://github.com/Boombam258/CMS/pulls">Request Feature</a>
   </p>
 </p>
 
-![Downloads](https://img.shields.io/github/downloads/ShaanCoding/ReadME-Generator/total) ![Contributors](https://img.shields.io/github/contributors/ShaanCoding/ReadME-Generator?color=dark-green) ![Issues](https://img.shields.io/github/issues/ShaanCoding/ReadME-Generator) ![License](https://img.shields.io/github/license/ShaanCoding/ReadME-Generator) 
+ ![Contributors](#contributing) ![Issues](https://github.com/Boombam258/CMS/issues) ![License](LISCENSE) 
 
 ## Table Of Contents
 
@@ -30,10 +30,9 @@
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
 * [Usage](#usage)
-* [Contributing](#contributing)
 * [License](#license)
-* [Authors](#authors)
-* [Acknowledgements](#acknowledgements)
+* [Contributing](#contributing)
+
 
 ## About The Project
 
@@ -62,7 +61,7 @@ Before running the application, ensure you have the following installed:
 
 1. **Clone the repository**: 
 ```sh
-git clone https://github.com/your-username/canteen-ordering-system.git
+https://github.com/Boombam258/CMS.git
 ```
 
 
@@ -109,26 +108,17 @@ This project is licensed under the [MIT License](LICENSE) - see the [LICENSE](LI
 
 ## Acknowledgments
 
-- Special thanks to [Your Supervisor/Instructor/Team](https://github.com/your-team) for guidance and support.
+- Special thanks to [Deepak](https://github.com/Deepakmalla7) for guidance and support.
 
 ## Support
 
-For any questions or issues, please open an issue on the [GitHub repository](https://github.com/your-username/canteen-ordering-system).
+For any questions or issues, please open an issue on the [GitHub repository](https://github.com/Boombam258/CMS).
 
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-* If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/ShaanCoding/ReadME-Generator/issues/new) to discuss it, or directly create a pull request after you edit the *README.md* file with necessary changes.
+* If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/Boombam258/CMS/issues/new) to discuss it, or directly create a pull request after you edit the *README.md* file with necessary changes.
 * Please make sure you check your spelling and grammar.
-* Create individual PR for each suggestion.
-* Please also read through the [Code Of Conduct](https://github.com/ShaanCoding/ReadME-Generator/blob/main/CODE_OF_CONDUCT.md) before posting your first idea as well.
 
-### Creating A Pull Request
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 
