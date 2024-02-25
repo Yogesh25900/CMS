@@ -1,3 +1,4 @@
+
 <br/>
 <p align="center">
   <a href="https://github.com/Boombam258/CMS/>
@@ -95,7 +96,11 @@ pip install -r requirements.txt
 
 ## Contributors
 
+- [Deepak Malla](https://github.com/Deepakmalla7)
+-  [Sundar Dhakal](https://github.com/dhakalsundar)
+-  [Santosh Oli ]( https://github.com/santosholi123)
 - [Yogesh](https://github.com/Boombam258)
+
 
 ## License
 
