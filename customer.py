@@ -4,9 +4,9 @@ from tkinter import messagebox,Toplevel
 from PIL import Image,ImageTk
 import mysql.connector
 
-class dahsboard_customer():
+class dashboard_customer():
 
-    def __init__(self,master):
+    def __init__(self,master,**kwargs):
         self.master = master
         self.master.geometry('900x600+0+2')
         self.master.title('Customer Dashboard')
@@ -34,12 +34,12 @@ class dahsboard_customer():
                        fg="white", bg="#8B4513")  # Customize foreground and background colors
         self.btn_Home.place(x=100, y=130)
 
-        menu_img_path = "menu.jpg"
-        org_img= Image.open(menu_img_path)
-        res_img = org_img.copy()
-        res_img.thumbnail((85,90))
-        self.HomeIcon= ImageTk.PhotoImage(res_img)
-        self.label_ico_menu = Label(self.master,image=self.HomeIcon)
+        menu_img_path = "menu.png"
+        org_img1= Image.open(menu_img_path)
+        res_img1 = org_img1.copy()
+        res_img1.thumbnail((85,90))
+        self.menuIcon= ImageTk.PhotoImage(res_img1)
+        self.label_ico_menu = Label(self.master,image=self.menuIcon)
         self.label_ico_menu.place(x=10,y=130)
 
         self.btn_order = Button(self.master, text="Order", command=self.open_customerorder_window,
@@ -48,13 +48,13 @@ class dahsboard_customer():
                        fg="white", bg="#8B4513")  # Customize foreground and background colors
         self.btn_order.place(x=100, y=228)
 
-        order_img_path = "menu.jpg"
-        org_img= Image.open(order_img_path)
-        res_img = org_img.copy()
-        res_img.thumbnail((85,90))
-        self.HomeIcon= ImageTk.PhotoImage(res_img)
-        self.label_ico_menu = Label(self.master,image=self.HomeIcon)
-        self.label_ico_menu.place(x=10,y=228)
+        order_img_path = "order.png"
+        org_img2= Image.open(order_img_path)
+        res_img2 = org_img2.copy()
+        res_img2.thumbnail((85,90))
+        self.orderIcon= ImageTk.PhotoImage(res_img2)
+        self.label_ico_order = Label(self.master,image=self.orderIcon)
+        self.label_ico_order.place(x=10,y=228)
 
         self.btn_order = Button(self.master, text="Feedback", command=self.open_customerfeedback_window,
                        width=15, height=3,  # Set width and height to make the button bigger
@@ -62,13 +62,13 @@ class dahsboard_customer():
                        fg="white", bg="#8B4513")  # Customize foreground and background colors
         self.btn_order.place(x=100, y=326)
 
-        order_img_path = "menu.jpg"
-        org_img= Image.open(order_img_path)
-        res_img = org_img.copy()
-        res_img.thumbnail((85,90))
-        self.HomeIcon= ImageTk.PhotoImage(res_img)
-        self.label_ico_menu = Label(self.master,image=self.HomeIcon)
-        self.label_ico_menu.place(x=10,y=326)
+        fdback_img_path = "feedback.png"
+        org_img3= Image.open(fdback_img_path)
+        res_img3 = org_img3.copy()
+        res_img3.thumbnail((85,90))
+        self.fdIcon= ImageTk.PhotoImage(res_img3)
+        self.label_ico_feedback = Label(self.master,image=self.fdIcon)
+        self.label_ico_feedback.place(x=10,y=326)
 
         self.btn_order = Button(self.master, text="Logout", command=self.logout,
                        width=15, height=3,  # Set width and height to make the button bigger
@@ -76,56 +76,18 @@ class dahsboard_customer():
                        fg="white", bg="#8B4513")  # Customize foreground and background colors
         self.btn_order.place(x=100, y=424)
 
-        order_img_path = "menu.jpg"
-        org_img= Image.open(order_img_path)
-        res_img = org_img.copy()
-        res_img.thumbnail((85,90))
-        self.HomeIcon= ImageTk.PhotoImage(res_img)
-        self.label_ico_menu = Label(self.master,image=self.HomeIcon)
-        self.label_ico_menu.place(x=10,y=424)
+        logout_img_path = "logout.png"
+        org_img4= Image.open(logout_img_path)
+        res_img4 = org_img4.copy()
+        res_img4.thumbnail((85,90))
+        self.logoutIcon= ImageTk.PhotoImage(res_img4)
+        self.label_ico_lgout = Label(self.master,image=self.logoutIcon)
+        self.label_ico_lgout.place(x=10,y=424)
         self.user = None
         self.password= None
         
     
-    def set_credentials(self,username, pwd):
-        self.user = username
-        self.password = pwd
-        print(f"{self.user,self.password} from tbcustomer")
-        
-    
-    
-
-    def displayname(self,username,password):
-        
-      
-        username2 =username
-        passwd = password
-        try:
-            connection = mysql.connector.connect(
-                host='localhost',
-                port='3306',
-                user='root',
-                password='',
-                database='canteen_database1',
-            )
-            cursor = connection.cursor()
-            
-
-            cursor.execute("SELECT name FROM tbcustomer where username = %s and password = %s",(username2,passwd))
-            self.result = cursor.fetchone()
-            name = self.result[0].strip("()\"")
-
-            if self.result is not None:
-                print(name)
-                self.label.config(text=name)
-            else:
-                print("No result")
-
-        except Exception as e:
-            print(f"Error: {e}")
-            messagebox.showerror("Error", f"Error: {e}")
-            return False
-
+   
 
             
         
@@ -144,10 +106,10 @@ class dahsboard_customer():
         from ordertry import Bill_App
         order_window=Tk()
         order_instance=Bill_App(order_window)
-    def open_customer(self):
-        from adminCustomer import customerDatabase
-        customer_window=Tk()
-        win_instance=customerDatabase(customer_window)  
+    # def open_customer(self):
+    #     from adminCustomer import customerDatabase
+    #     customer_window=Tk()
+    #     win_instance=customerDatabase(customer_window)  
     def open_staff(self):
         from adminStaff import staffDatabase
         staff_window=Tk()
@@ -169,7 +131,7 @@ class dahsboard_customer():
 
 def open_main():
     master = Tk()
-    object_name = dahsboard_customer(master)
+    object_name = dashboard_customer(master)
     
     master.mainloop()
 if __name__ == "__main__":
