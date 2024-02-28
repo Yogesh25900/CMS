@@ -22,7 +22,7 @@
   </p>
 </p>
 
- ![Contributors](#contributing) ![Issues](https://github.com/Boombam258/CMS/issues) ![License](https://img.shields.io/github/license/ShaanCoding/ReadME-Generator)
+ ![License](https://img.shields.io/github/license/ShaanCoding/ReadME-Generator)
 
 ## Table Of Contents
 
