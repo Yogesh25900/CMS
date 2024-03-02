@@ -11,12 +11,14 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- Schema mydb
 -- -----------------------------------------------------
 -- -----------------------------------------------------
--- Schema canteen_database1
+-- Schema canteen_database9
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
 -- Table `tbadmin`
 -- -----------------------------------------------------
+create database canteen_database1;
+use canteen_database1;
 CREATE TABLE IF NOT EXISTS `tbadmin` (
   `username` VARCHAR(50) NOT NULL,
   `password` VARCHAR(50) NULL DEFAULT NULL,
@@ -27,18 +29,18 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `tbbill`
+-- Table `tbbill` for future
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `tbbill` (
-  `billid` VARCHAR(50) NOT NULL,
-  `orderids` VARCHAR(50) NULL DEFAULT NULL,
-  `customerid` INT NULL DEFAULT NULL,
-  `totalbill` DECIMAL(10,2) NULL DEFAULT NULL,
-  PRIMARY KEY (`billid`),
-  INDEX `customerid` (`customerid` ASC) VISIBLE)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+-- CREATE TABLE IF NOT EXISTS `tbbill` (
+ -- `billid` VARCHAR(50) NOT NULL,
+-- `orderids` VARCHAR(50) NULL DEFAULT NULL,
+--  `customerid` INT NULL DEFAULT NULL,
+--  `totalbill` DECIMAL(10,2) NULL DEFAULT NULL,
+--  PRIMARY KEY (`billid`),
+--  INDEX `customerid` (`customerid` ASC) VISIBLE)
+-- ENGINE = InnoDB
+-- DEFAULT CHARACTER SET = utf8mb4
+-- COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
