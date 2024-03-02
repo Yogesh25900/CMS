@@ -71,7 +71,7 @@ class ChefOrder:
 
 def main():
     root = Tk()
-    app = ChefOrder(root)
+    ChefOrder(root)
     root.mainloop()
 
 if __name__ == "__main__":
