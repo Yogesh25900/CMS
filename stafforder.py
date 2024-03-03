@@ -8,9 +8,14 @@ class StaffOrder:
         self.master = master
         self.master.title('Staff Order')
         self.master.geometry('800x600')
-
+        self.id =StringVar()
         # Create a frame to hold the staff order display
-        self.order_frame = Frame(self.master)
+        F1 = LabelFrame(self.master, text="*"*100, font=('times new roman', 15, 'bold'), bd=10)
+        F1.pack(fill=X)
+        cname_lbl = Label(F1, text="Customer Order Details", font=('times new roman', 30, 'bold'))
+        cname_lbl.pack()
+        
+        self.order_frame = Frame(self.master,bd=10,relief=GROOVE)
         self.order_frame.pack(expand=True, fill='both')
 
         # Display headings

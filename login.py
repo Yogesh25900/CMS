@@ -44,17 +44,16 @@ class login:
         #pasword label and entry
         self.label_password = Label(self.master,text='Password:',font=(16))
         self.label_password.place(x=160,y=160)
-        self.entry_password = Entry(self.master,textvariable=self.password,font=(16),width=15)
+        self.entry_password = Entry(self.master,textvariable=self.password,show="*",font=(16),width=15)
         self.entry_password.place(x=260,y=160)
 
         # Login button
         self.btn_login = Button(self.master, text="Login",command=self.check_auth,font=(16))
         self.btn_login.place(x=280,y=200)
 
-        self.btn_login = Button(self.master, text="Register",command=self.open_register_window,font=(16))
-        self.btn_login.place(x=280,y=240)
+        self.btn_login = Button(self.master, text="Register as Customer",command=self.open_register_window,font=(16))
+        self.btn_login.place(x=220,y=240)
 
-    # def check_user(self):
 
     
 
@@ -84,20 +83,25 @@ class login:
                     cursor.execute(query,data)
                     result=cursor.fetchone()
                     messagebox.showinfo("success", "success") and self.open_staff() if result else messagebox.showerror("error", "Error:No such user found as Staff")
+                
+                
                 elif self.selected == 'Customer':
                     query = "SELECT * FROM tbcustomer WHERE username= %s AND Password = %s"
                     data=(username,password)
                     cursor.execute(query,data)
                     result=cursor.fetchone()
-                    messagebox.showinfo("success", "success") and self.open_customer() if result else messagebox.showerror("error", "Error:No such user found as Customer")
+                    messagebox.showinfo("success", "success") and self.open_customer() if result else messagebox.showerror("Error", "Error:No such user found as Customer")
+                
                 elif self.selected == 'Chef':
                     query = "SELECT * FROM tbchef WHERE username= %s AND Password = %s"
                     data=(username,password)
                     cursor.execute(query,data)
                     result=cursor.fetchone()
                     messagebox.showinfo("success", "success") and self.open_chef() if result else messagebox.showerror("error", "Error:No such user found as Chef")
+                
                 else:
                     messagebox.showwarning("Invalid",'Please select user type first')
+            
             except Exception as e:
                 print(f"Error: {e}")
                 messagebox.showerror("Error", f"Error: {e}")
@@ -108,9 +112,13 @@ class login:
                     connection.close()
         else:
             messagebox.showinfo("Warning",'Please enter both username and password')
+    
+    
+  
             
  
     def open_admin(self):
+
         self.master.destroy()  # Close the login window
         admin_app = Tk()
         from admin import dashboard_app
@@ -118,26 +126,29 @@ class login:
         admin_app.mainloop()
     
     def open_customer(self):
-        self.master.destroy() # Close the login window
-        master = Tk()
-        from customer import dahsboard_customer
-        object_name = dahsboard_customer(master)
-    
-    def open_staff(self):
-        master = Tk()
-        from staff import dashboard_app
-        object_name = dashboard_app(master)
-        master.mainloop()
+        self.master.destroy()
+        customer_app = Tk()
+        from customer import dashboard_customer
+        dashboard_customer(customer_app)
 
+
+    def open_staff(self):
+        self.master.destroy()  # Close the login window
+        admin_app = Tk()
+        from staff import dashboard_app
+        dashboard_app(admin_app)
+
+    
     def open_chef(self):
-        master = Tk()
-        from cheff import dahsboard_chef
-        object_name = dahsboard_chef(master)
-        master.mainloop()
+        self.master.destroy() # Close the login window
+        order_window= Tk()
+        from chefforder import ChefOrder
+        ChefOrder(order_window)
+        
 
     def open_register_window(self):
         register_window=Toplevel(self.master)
-        from register import registerapp
+        from customer_register import registerapp
         registerapp(register_window,bg_image=self.bg_image)
 
     

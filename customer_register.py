@@ -87,7 +87,7 @@ class registerapp:
 
         self.pwd = Label(self.register_frame, text="Password",font=(16))
         self.pwd.place(x=2,y=220)
-        self.e7 =Entry(self.register_frame, width=20,textvariable=self.key,font=(16))
+        self.e7 =Entry(self.register_frame, width=20,textvariable=self.key,show="*",font=(16))
         self.e7.place(x=110,y=220)
 
 
@@ -130,7 +130,7 @@ class registerapp:
                     return False
                 finally:
                     
-                    self.cursor.close()
+                    cursor.close()
                     connection.close()
 
             

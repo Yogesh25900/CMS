@@ -20,7 +20,7 @@ class CustomerMenu:
         self.category_combobox.bind("<<ComboboxSelected>>", self.display_menu_items)
 
         
-        cname_lbl = Label(self.F1, text="Customer ID:", font=('times new roman', 15, 'bold'))
+        cname_lbl = Label(self.F1, text="Username:", font=('times new roman', 15, 'bold'))
         cname_lbl.grid(row=0, column=2, padx=20, pady=5)
         self.customer_id_entry = Entry(self.F1)
         self.customer_id_entry.grid(row=0, column=3, padx=10, pady=5)
@@ -86,9 +86,9 @@ class CustomerMenu:
                 self.quantity_entries[food_id] = quantity_entry
 
     def add_to_order(self):
-        customer_id = self.customer_id_entry.get()
+        username_get = self.customer_id_entry.get()
 
-        if not customer_id:
+        if not username_get:
             messagebox.showerror("Error", "Please enter a Customer ID.")
             return
 
@@ -101,12 +101,19 @@ class CustomerMenu:
                 quantity = int(quantity)
                 total_price = float(price) * quantity
                 try:
-                    insert_query = "INSERT INTO tborder(itemid, quantity, customerid, billamount) VALUES(%s, %s, %s, %s)"
-                    values = (food_name, quantity, customer_id, total_price)
-                    self.cursor.execute(insert_query, values)
-                    self.connection.commit()
+                    select_query =  "SELECT customerid from tbcustomer WHERE LOWER(username)  = LOWER(%s) "
+                    self.cursor.execute(select_query,(username_get,))
+                    fetch_id  =self.cursor.fetchone()
+                    if not fetch_id:
+                        messagebox.showerror("Error", "Invalid username")
+                    else:
+                        print(fetch_id)
+                        insert_query = "INSERT INTO tborder(itemid, quantity, customerid, billamount) VALUES(%s, %s, %s, %s)"
+                        values = (food_name, quantity, fetch_id[0], total_price)
+                        self.cursor.execute(insert_query, values)
+                        self.connection.commit()
 
-                    messagebox.showinfo("Success", f"Added {food_name} to the order. Quantity: {quantity}, Total Price: Rs.{total_price}")
+                        messagebox.showinfo("Success", f"Added {food_name} to the order. Quantity: {quantity}, Total Price: Rs.{total_price}")
                 except Exception as e:
                     print(f"Error: {e}")
                     messagebox.showerror("Error", f"Error: {e}")

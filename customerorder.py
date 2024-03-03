@@ -13,7 +13,7 @@ class CustomerOrder:
         # Customer ID entry and search button
         self.F1 = LabelFrame(self.master, text="Search your orders", font=('times new roman', 15, 'bold'), bd=10)
         self.F1.pack(fill=X)
-        cname_lbl = Label(self.F1, text="Customer ID :", font=('times new roman', 15, 'bold'))
+        cname_lbl = Label(self.F1, text="USername :", font=('times new roman', 15, 'bold'))
         cname_lbl.grid(row=0, column=0, padx=20, pady=5)
         self.customer_id_entry = Entry(self.F1, width=15, font='arial 15', bd=7, relief=GROOVE)
         self.customer_id_entry.grid(row=0, column=1, pady=5, padx=10)
@@ -41,7 +41,7 @@ class CustomerOrder:
 
     def display_orders(self):
         # Retrieve customer ID from the entry field
-        customer_id = self.customer_id_entry.get()
+        username_get = self.customer_id_entry.get()
 
         # Clear existing entries in the display
         for widget in self.display_frame.winfo_children():
@@ -56,13 +56,16 @@ class CustomerOrder:
 
       
         # Fetch orders for the specific customer
+        select_query =  "SELECT customerid from tbcustomer WHERE LOWER(username)  = LOWER(%s) "
+        self.cursor.execute(select_query,(username_get,))
+        fetch_id  =self.cursor.fetchone()
         query = "SELECT orderid, itemid, quantity, billamount FROM tborder WHERE customerid = %s AND (orderstatus = 'Undelivered' or orderstatus is NULL)"
-        self.cursor.execute(query, (customer_id,))
+        self.cursor.execute(query, (fetch_id[0],))
         orders = self.cursor.fetchall()
         
 
         if not orders:
-            messagebox.showinfo("Information", f"No orders found for Customer ID: {customer_id}")
+            messagebox.showinfo("Information", f"No orders found for Customer ID: {username_get}")
             return
 
         self.total_price=0
