@@ -15,10 +15,15 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Table `tbadmin`
+-- Creates new database `canteen_dtatabase1
 -- -----------------------------------------------------
 create database canteen_database1;
+
+
 use canteen_database1;
+
+-- Table `tbadmin`
+
 CREATE TABLE IF NOT EXISTS `tbadmin` (
   `username` VARCHAR(50) NOT NULL,
   `password` VARCHAR(50) NULL DEFAULT NULL,
