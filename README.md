@@ -61,14 +61,14 @@ Before running the application, ensure you have the following installed:
 
 1. **Clone the repository**: 
 ```sh
-git clone https://github.com/Boombam258/ST4008CEM-35D-CMS.git
+git clone https://Yogesh25900/CMS.git
 ```
 
 
 
 2. **Navigate to the project directory**: 
 ```sh
-cd ST4008CEM-35D-CMS
+cd CMS
 ```
 
 3. **Install the required Python packages**: 
