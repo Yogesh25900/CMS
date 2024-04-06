@@ -1,8 +1,8 @@
 
 <br/>
 <p align="center">
-  <a href="https://github.com/Yogesh25900/CMS/>
-    <img src="![logo](https://github.com/Yogesh25900/CMS/assets/151710577/567cdbe3-c374-4558-a177-d7306b9cf29e)" alt="Logo" width="80" height="80">
+  <a href="https://github.com/Boombam258/STD4008-35D-CMS/>
+    <img src="![logo](https://github.com/Boombam258/STD4008CEM-35D-CMS/assets/151710577/567cdbe3-c374-4558-a177-d7306b9cf29e)" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Canteen Management System</h3>
