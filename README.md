@@ -1,8 +1,8 @@
 
 <br/>
 <p align="center">
-  <a href="https://github.com/Boombam258/ST4008CEM-35D-CMS/>
-    <img src="![logo](https://github.com/Boombam258/ST4008CEM-35D-CMS/assets/151710577/567cdbe3-c374-4558-a177-d7306b9cf29e)" alt="Logo" width="80" height="80">
+  <a href="https://github.com/Yogesh25900/CMS/>
+    <img src="![logo](https://github.com/Yogesh25900/CMS/assets/151710577/567cdbe3-c374-4558-a177-d7306b9cf29e)" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Canteen Management System</h3>
@@ -36,7 +36,7 @@
 
 ## About The Project
 
-![admindasboard](https://github.com/Boombam258/ST4008CEM-35D-CMS/assets/151710577/955de95e-7e1a-460f-aca9-1baff40b4220)
+![admindasboard](https://github.com/Yogesh25900/CMS/assets/151710577/955de95e-7e1a-460f-aca9-1baff40b4220)
 
 
 The canteen ordering system is a software application that automates the process of ordering food from a canteen. It simplifies the process of ordering food by providing a digital platform that allows customers to place orders from a menu
@@ -61,7 +61,7 @@ Before running the application, ensure you have the following installed:
 
 1. **Clone the repository**: 
 ```sh
-git clone https://Yogesh25900/CMS.git
+git clone https://github.com/Yogesh25900/CMS.git
 ```
 
 
@@ -98,7 +98,7 @@ pip install -r requirements.txt
 -  [Deepak Malla](https://github.com/Deepakmalla7)
 -  [Sundar Dhakal](https://github.com/dhakalsundar)
 -  [Santosh Oli ]( https://github.com/santosholi123)
--  [Yogesh](https://github.com/Boombam258)
+-  [Yogesh Chaudhary](https://github.com/Yogesh)
 
 
 ## License
@@ -112,12 +112,12 @@ This project is licensed under the [MIT License](LICENSE) - see the [LICENSE](LI
 
 ## Support
 
-For any questions or issues, please open an issue on the [GitHub repository](https://github.com/Boombam258/ST4008CEM-35D-CMS).
+For any questions or issues, please open an issue on the [GitHub repository](https://github.com/Yogesh2590/CMS/issues/).
 
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-* If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/Boombam258/ST4008CEM-35D-CMS/issues/new) to discuss it, or directly create a pull request after you edit the *README.md* file with necessary changes.
+* If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/Yogesh25900/CMS/issues/new) to discuss it, or directly create a pull request after you edit the *README.md* file with necessary changes.
 * Please make sure you check your spelling and grammar.
 
 
